@@ -142,10 +142,7 @@
 // number of the enabled bit. We need this, because digitalPinToBitMask
 // returns a bitmask and we want to use it in digitalPinToPCMSKbit,
 // which uses a bit number...
-#ifdef __cplusplus
-constexpr
-#endif
-inline uint8_t pinoccio_mask_to_bit(uint8_t mask) {
+static inline uint8_t pinoccio_mask_to_bit(uint8_t mask) {
   return (mask == 0) ? -1 : (pinoccio_mask_to_bit(mask >> 1) + 1);
 }
 
